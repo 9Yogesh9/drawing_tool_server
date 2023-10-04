@@ -6,6 +6,7 @@ const cors = require('cors');
 const app = express();
 // https://drawing-tool-server.onrender.com
 const URL = app.settings.env === 'development' ? 'http://localhost:3000' : 'https://drawing-tool-kappa.vercel.app/';
+// const URL = 'https://drawing-tool-kappa.vercel.app/';
 app.use(cors({ origin: URL }));
 const httpServer = createServer(app);
 const io = new Server(httpServer, { cors: URL });
