@@ -25,6 +25,19 @@ io.on("connection", (socket) => {
     socket.on('changeConfig', (arg) => {
         socket.broadcast.emit('changeConfig', arg);
     })
+
+    socket.on("menuItem", (arg) =>{
+        socket.broadcast.emit('menuItem', arg);
+    })
+
+    socket.on("undo_redo", (arg) => {
+        socket.broadcast.emit('undo_redo', arg);
+    })
+
+    socket.on("historySync", (arg) => {
+        console.log("HISTORY ", arg)
+        socket.broadcast.emit('historySync', arg);
+    })
 });
 
 httpServer.listen(5000);
